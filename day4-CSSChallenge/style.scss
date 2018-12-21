@@ -9,12 +9,10 @@ body {
 // use only the available space inside the 400x400 frame
 .frame {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 400px;
-	height: 400px;
-	margin-left: -200px;
-	margin-top: -200px;
+	top: 25%;
+	left: 35%;
+	width: 600px;
+	height: 600px;
 	border-radius: 2px;
 	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
 	overflow: hidden;
@@ -30,7 +28,7 @@ body {
 	cursor: pointer;
 	position: absolute;
 	top: 50%;
-	left: 60%;
+	left: 70%;
 	transform: translate(-50%, -50%);
 	height: 280px;
 	width: 210px;
@@ -169,44 +167,44 @@ body {
 	background: #dbdbdb;
 	width: 1px;
 	height: 280px;
-	left: 135px;
-	bottom: 60px;
+	left: 315px;
+	bottom: 160px;
 	position: absolute;
 	opacity: 0.7;
 }
 
 .book:hover .front-pg {
-	transform: rotateY(-160deg) translateX(-100px);
+	transform: rotateY(-160deg);
 	box-shadow: 8px 8px 5px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 8px 8px 8px 8px;
 }
 
 .book:hover .page1 {
-	transform: rotateY(-150deg) translateX(-100px);
+	transform: rotateY(-150deg);
 	box-shadow: 8px 8px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .book:hover .page2 {
-	transform: rotateY(-30deg) translateX(-100px);
+	transform: rotateY(-30deg);
 	box-shadow: 8px 8px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .book:hover .page3 {
-	transform: rotateY(-140deg) translateX(-100px);
+	transform: rotateY(-140deg);
 	box-shadow: 8px 8px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .book:hover .page4 {
-	transform: rotateY(-40deg) translateX(-100px);
+	transform: rotateY(-40deg);
 	box-shadow: 8px 8px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .book:hover .page5 {
-	transform: rotateY(-130deg) translateX(-100px);
+	transform: rotateY(-130deg);
 	box-shadow: 8px 8px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .book:hover .page6 {
-	transform: rotateY(-50deg) translateX(-100px);
+	transform: rotateY(-50deg);
 	box-shadow: 8px 8px 5px 0 rgba(0, 0, 0, 0.2);
 }
