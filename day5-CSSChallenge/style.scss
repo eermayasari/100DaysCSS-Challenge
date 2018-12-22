@@ -1,0 +1,70 @@
+$noOfDots: 50; //number of dots depend on how many dots you made in html
+
+// use only the available space inside the 400x400 frame
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: linear-gradient(
+		180deg,
+		rgba(132, 26, 208, 1) 0%,
+		rgba(208, 120, 255, 1) 15%,
+		rgba(109, 28, 175, 1) 80%,
+		rgba(103, 0, 162, 1) 100%
+	);
+}
+
+.center {
+	display: flex;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.container {
+	display: flex;
+	flex: 1;
+	justify-content: space-around;
+	width: 100%;
+} //this div is to align the dots
+
+.dot {
+	background: #fff;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	height: 3px;
+	width: 3px;
+}
+
+// code below written by Matthias Martin for the sake of learning SASS, tweaked a bit. You can find the source from https://codepen.io/roydigerhund/pen/QNJjMJ
+
+@for $i from 1 through $noOfDots {
+	.dot-#{$i} {
+		animation: swing-#{$i} 1.25s ease-in-out infinite alternate;
+	}
+
+	@keyframes swing-#{$i} {
+		//First define offset value for keyframes
+		$offset: $noOfDots + px; //set offset as variable (any value)
+		$dv: 4; //to reduce the swing of the dotted line
+		@if $i < $noOfDots/2 {
+			$offset: 0px + ($i * $i / $dv);
+		} @else {
+			$offset: 0px + (($noOfDots - $i) * ($noOfDots - $i) / $dv); //$offset to define the positioning
+		}
+		0% {
+			transform: translateY($offset * -1);
+		} //-1 to swing to the other side
+		100% {
+			transform: translateY($offset);
+		}
+	}
+}
