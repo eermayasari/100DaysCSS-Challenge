@@ -1,0 +1,89 @@
+body {
+	background: #D3D3D3;
+}
+
+// use only the available space inside the 400x400 frame
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: #000;
+}
+
+.rows {
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+
+	.shape {
+		width: 10px;
+		height: 40px;
+		background: #fff;
+		margin: 0 15px;
+		animation: plusToOctagram1 5s ease infinite;
+	}
+}
+
+.columns {
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+
+	.shape {
+		width: 40px;
+		height: 10px;
+		margin: 15px 0;
+		animation: plusToOctagram2 5s ease infinite;
+	}
+}
+
+@keyframes plusToOctagram1 {
+	0% {
+		transform: rotate(0deg);
+		background: #ff0000;
+	}
+	25% {
+		transform: rotate(45deg);
+		background: #ffff00;
+	}
+	50% {
+		transform: rotate(45deg) translateX(15px);
+	}
+	75% {
+		transform: rotate(0) scaleX(2) scaleY(0.5);
+		background: #00ffff;
+	}
+	100% {
+		transform: rotate(90deg);
+		background: #ff0000;
+	}
+}
+
+@keyframes plusToOctagram2 {
+	0% {
+		transform: rotate(0deg);
+		background: #ff0000;
+	}
+	25% {
+		transform: rotate(45deg);
+		background: #ffff00;
+	}
+	50% {
+		transform: rotate(45deg) translateX(-15px);
+	}
+	75% {
+		transform: rotate(45deg) scaleX(0.5) scaleY(2);
+		background: #00ffff;
+	}
+	100% {
+		transform: rotate(90deg);
+		background: #ff0000;
+	}
+}

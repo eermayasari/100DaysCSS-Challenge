@@ -1,0 +1,9 @@
+.frame
+	.rows
+		- for (var i = 1; i <= 100; i++)
+			div(class="shape shape"+i)
+	.columns
+		- for (var i = 1; i <= 100; i++)
+			div(class="shape shape"+i)
+
+<!-- First-day 251218 - Learning how to code with pug html in spirit of having clean/dry codes, need to write less than hundreds lines of div tags :p for this, thought of using html-slim but i found it hard to find user-friendly sources in comparison to pug. Sources: https://www.phug-lang.com/ and  https://pugjs.org/language/iteration.html -->
