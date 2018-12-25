@@ -1,0 +1,123 @@
+body {
+	background: #FFC804;
+}
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #000;
+}
+
+.ruby-container {
+  position: absolute;
+	width: 180px;
+	height: 144px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.post-1, .post-3, .post-5 {
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 0;
+	border-style: solid;
+}
+
+.post-2, .post-4 {
+	position: absolute;
+	width: 58px;
+	height: 45px;
+	top: 0;
+}
+
+.post-btm1, .post-btm2, .post-btm3 {
+	position: absolute;
+	width: 0;
+	height: 0;
+	bottom: 0;
+	border-style: solid;
+}
+
+.t-1{
+	z-index: 1;
+	left: 0;
+	border-width: 0 20px 40px 32px;
+	border-color: transparent transparent #a80a0a transparent;
+}
+
+.t-3 {
+	z-index: 2;
+	left: 52px;
+	border-width: 0 38px 40px 38px;
+	border-color: transparent transparent #bb1313 transparent;
+}
+
+.t-5 {
+	z-index: 1;
+	right: 0;
+	border-width: 0 32px 40px 20px;
+	border-color: transparent transparent #a80a0a transparent;
+}
+
+.t-2 {
+	left: 32px;
+	background: #e70000;
+}
+
+.t-4{
+	z-index: 1;
+	right: 32px;
+	background: #fa7474;
+	overflow: hidden;
+}
+
+.btm-t1 {
+	left: 0;
+	border-width: 105px 0px 0px 90px;
+	border-color: #980d0d transparent transparent transparent;
+	z-index: 1;
+}
+
+.btm-t2 {
+	left: 52px;
+	border-width: 105px 38px 0px 38px;
+	border-color: #b00606 transparent transparent transparent;
+	z-index: 2;
+}
+
+.btm-t3 {
+	right: 0;
+	border-width: 105px 90px 0px 0px;
+	border-color: #c80101 transparent transparent transparent;
+	z-index: 1;
+}
+
+.shine {
+	position: absolute;
+	width: 5px;
+	height: 100px;
+	top: -30px;
+	left: 0px;
+	background: #fa9c9c;
+	animation: shine 2.5s linear infinite both;
+}
+
+@keyframes shine {
+	0% {
+		transform: rotate(-40deg) translateX(0px);
+	}
+	
+	25%, 100% {
+		transform: rotate(-40deg) translateX(70px);
+	}
+}
