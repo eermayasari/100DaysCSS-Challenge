@@ -1,0 +1,160 @@
+$hairColor: #fff6ec;
+$darkHair: darken($hairColor, 5%);
+
+body {
+	background: #000;
+}
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #8E44AD;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.wholebody {
+  position: absolute;
+	top: 10%;
+	left: 37.5%;
+	height: 300px;
+	width: 200px;
+}
+
+.hair {
+	height: 50px;
+	width: 70px;
+	background: $hairColor;
+	border: solid 3px $darkHair;
+	border-radius: 50%;
+	border-top-left-radius: 210px;
+	border-top-right-radius: 210px;
+}
+
+.head {
+	height: 57.5px;
+	width: 52.5px;
+	background: #fff;
+	border-radius: 50%;
+	z-index: 1;
+	position: absolute;
+	top: 15px;
+	left: 12.5px;
+	
+	.bangs {
+		height: 22px;
+		width: 55px;
+		background: $hairColor;
+		border-radius: 20px 20px 0 0;
+		border-bottom: solid 1px $darkHair;
+	}
+}
+
+.body {
+	height: 100px;
+	width: 70px;
+	background: #fff;
+	position: absolute;
+	top: 85px;
+	left: 2px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.skirt {
+	border-bottom: solid 60px #fff6ec;
+	border-left: solid 37.5px transparent;
+	border-right: solid 37.5px transparent;
+	height: 0;
+	width: 70px;
+	position: relative;
+	top: 100px;
+	left: -35px;
+	z-index: 2;
+}
+.leg {
+	height: 130px;
+	width: 32.5px;
+	background: #fff;
+	position: absolute;
+	top: 180px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	
+	&-left{
+		left: 2px;
+	}
+	
+	&-right{
+		left: 39px;
+	}
+}
+
+.hand {
+	height: 60px;
+	width: 18px;
+	background: #fff;
+	border-radius: 10px 10px 10px 10px;
+	
+	&-upperLeft{
+		position: absolute;
+		top: 92px;
+		left: 0px;
+		transform-origin: top right;
+		transform: rotate(35deg);
+	}
+	
+	&-lowerLeft{
+		position: absolute;
+		top: 108px;
+		left: 0px;
+		transform-origin: bottom right;
+		transform: rotate(-35deg);
+		z-index: 3;
+	}
+	
+	&-upperRight {
+		position: absolute;
+		top: 34px;
+		right: 128px;
+		transform-origin: bottom;
+		transform: rotate(90deg);
+		animation: shakeUpDown 1s ease-in-out infinite alternate;
+	}
+	
+	&-lowerRight {
+		position: absolute;
+		top: 43px;
+		right: 76px;
+		transform-origin: bottom;
+		animation: shakeSides 1s ease-in-out infinite alternate;
+	}
+}
+
+@keyframes shakeUpDown {
+	from {
+		transform: rotate(90deg)
+	}
+	to {
+		transform: rotate(100deg);
+	}
+}
+
+@keyframes shakeSides {
+	from {
+		transform: rotate(-10deg)
+	}
+	to {
+		transform: rotate(20deg);
+	}
+}

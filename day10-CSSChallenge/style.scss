@@ -1,0 +1,120 @@
+$rows: 20;
+$columns: 20;
+
+body {
+	background: #d3d3d3;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+// use only the available space inside the 400x400 frame
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: #000;
+}
+
+.target {
+	position: relative;
+	float: left;
+	width: 20px;
+	height: 20px;
+	z-index: 3;
+}
+
+.stripes {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	.stripe {
+		margin: 18px 0;
+		height: 2px;
+		width: 400px;
+		display: flex;
+		flex-wrap: wrap;
+
+		&:nth-child(1) {
+			margin-top: 7px;
+		}
+		
+		.left,
+		.right {
+			transition: all 0.3s linear;
+			height: 2px;
+			width: 200px;
+			background: #fff;
+			transform: scaleX(0);
+		}
+		
+		.left {
+		transform-origin: 0% 50%;
+		}
+		
+		.right {
+		transform-origin: 100% 50%;
+		}
+	}
+}
+
+// Codes below inspired from Matthias Martin (https://codepen.io/roydigerhund/pen/WwLYPg), tweaked a bit for learning purpose.
+
+
+$rw: 1;
+$cn: 1;
+
+@for $i from 1 through ($rows * $columns) {
+	
+	@if ($rw * $columns < $i) {
+		$rw : $rw + 1;
+	}
+
+	$cn: $i - ( ($rw - 1) * $columns);
+
+	.target-#{$i}:hover {
+		& ~ .stripes .stripe-#{$rw + 2},
+		& ~ .stripes .stripe-#{$rw - 2} {
+			.left {
+				$leftDeg: ($cn - 1) / 10;
+				transform: scaleX($leftDeg);
+			}
+			.right {
+				$rightDeg: ($columns - $cn) / 10;
+				transform: scaleX($rightDeg);
+			}
+		}
+
+		& ~ .stripes .stripe-#{$rw + 1},
+		& ~ .stripes .stripe-#{$rw - 1} {
+			.left {
+				$leftDeg: ($cn - 2) / 10;
+				transform: scaleX($leftDeg);
+			}
+			.right {
+				$rightDeg: ($columns - ($cn + 1)) / 10;
+				transform: scaleX($rightDeg);
+			}
+		}
+
+		& ~ .stripes .stripe-#{$rw} {
+			.left {
+				$leftDeg: ($cn - 3) / 10;
+				transform: scaleX($leftDeg);
+			}
+			.right {
+				$rightDeg: ($columns - ($cn + 2)) / 10;
+				transform: scaleX($rightDeg);
+			}
+		}
+	}
+}

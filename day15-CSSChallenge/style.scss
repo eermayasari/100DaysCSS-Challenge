@@ -1,0 +1,146 @@
+$size: 150px;
+$pigColour: #fbaaae;
+$dark: darken($pigColour, 4%);
+$light: lighten($pigColour, 7%);
+
+body{
+	background: #000;
+}
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #ffefd4;
+}
+
+.pigFace-Container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.head {
+	height: $size;
+	width: $size;
+	border-radius: 50%;
+	background: $dark;
+	box-shadow: inset 3px -3px 5px 4px rgba(255,255,255,0.25), inset 0px 0px 25px 0px rgba(0,0,0,0.25);
+	
+	.eye {
+		position: absolute;
+		top: 60px;
+    width: 23px;
+		height: 23px;
+		border-radius: 50%;
+		background: #fff;
+		animation: blink 10s linear infinite;
+		
+		&:before {
+			content: '';
+			background: #000;
+			height: 6px;
+			width: 4px;
+			border-radius: 50%;
+			display: block;
+			position: absolute;
+			top: 8.5px;
+			left: 9.5px;
+			animation: pupils 15s linear infinite;
+		}
+		
+		&-left {
+			left: 32px;
+		}
+		
+		&-right {
+			right: 32px;
+		}
+	}
+	
+	.nose{
+		height: 45px;
+		width: 55px;
+		background: $light;
+		border-radius: 100px / 80px;
+		position: absolute;
+		left: ($size - 55px)/2;
+		top: 80px;
+		
+		.nostril {
+			width: 11px;
+			height: 11px;
+			background: $dark;
+			border-radius: 50%;
+			position: absolute;
+			top: 13px;
+			
+			&-left{
+				left: 13px;
+			}
+			&-right{
+				right: 13px;
+			}
+		}
+	}	
+}
+
+.ear {
+	height: 45px;
+	width: 40px;
+	background: $light;
+	border: solid 8px $dark;
+	position: absolute;
+	top: -3px;
+	z-index: -1;
+	
+	&-left {
+		border-radius: 20px;
+		left: 0px;
+		transform: rotate(-185deg) skewY(30deg);
+	}
+	
+	&-right {
+		border-radius: 20px;
+		right: 0px;
+		transform: rotate(185deg) skewY(-30deg);
+	}
+}
+
+@keyframes blink {
+	0%, 20%, 22%, 24%, 26%, 65%, 67%, 89%, 91%, 100%  {
+		transform: scaleY(1);
+	}
+	21%, 23%, 25%, 66%, 90% {
+		transform: scaleY(0);
+	}
+}
+
+@keyframes pupils {
+	0%, 9%, 13%, 50%, 64%, 100% {
+		transform: translateX(0);
+	}
+	10%, 12% {
+		transform: scale(1.5);
+	}
+	24%, 70% {
+		transform: translateX(-5px);
+	}
+	30%, 65% {
+		transform: translateX(5px);
+	}
+	61%, 63% {
+		transform: translateY(-4px);
+	}
+	84%, 86% {
+		transform: translateY(4px);
+	}
+}

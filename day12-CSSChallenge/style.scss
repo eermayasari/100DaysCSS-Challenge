@@ -1,0 +1,200 @@
+body {
+	background: #d3d3d3;
+}
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #000;
+}
+
+// Using SASS to easily change the dot size and position value.
+
+$dotSize: 10px;
+$dotPost: (200px - ($dotSize/2));
+// dot center (200 is half of the frame minus half the size of the dot)
+
+.dot {
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	top: $dotPost;
+	left: $dotPost;
+	width: $dotSize;
+	height: $dotSize;
+}
+
+
+@for $i from 1 through 8 {
+	.dot#{$i}{
+		animation: danceDot#{$i} 4s linear infinite alternate;
+	}
+}
+
+@for $i from 9 through 16 {
+	.dot#{$i}{
+		animation: danceDot#{$i} 1.5s linear infinite alternate;
+	}
+}
+
+@keyframes danceDot1 {
+	from{
+		transform: translate(-$dotPost, -$dotPost)
+	}
+	to {
+		transform: translate(0, $dotPost);
+	}
+}
+
+@keyframes danceDot2 {
+	from{
+		transform: translate($dotPost, -$dotPost)
+	}
+	to {
+		transform: translate(0, $dotPost);
+	}
+}
+
+@keyframes danceDot3 {
+	from{
+		transform: translate($dotPost, $dotPost)
+	}
+	to {
+		transform: translate(0, -$dotPost);
+	}
+}
+
+@keyframes danceDot4 {
+	from{
+		transform: translate(-$dotPost, $dotPost)
+	}
+	to {
+		transform: translate(0, -$dotPost);
+	}
+}
+
+@keyframes danceDot5 {
+	from{
+		transform: translate(-$dotPost, -$dotPost)
+	}
+	to {
+		transform: translate($dotPost, 0);
+	}
+}
+
+@keyframes danceDot6 {
+	from{
+		transform: translate($dotPost, -$dotPost)
+	}
+	to {
+		transform: translate(-$dotPost, 0);
+	}
+}
+
+@keyframes danceDot7 {
+	from{
+		transform: translate($dotPost, $dotPost)
+	}
+	to {
+		transform: translate(-$dotPost, 0);
+	}
+}
+
+@keyframes danceDot8 {
+	from{
+		transform: translate(-$dotPost, $dotPost)
+	}
+	to {
+		transform: translate($dotPost, 0);
+	}
+}
+
+@keyframes danceDot9 {
+	from{
+		transform: translate(0, -$dotPost)
+	}
+	to {
+		transform: translate(-$dotPost, 0);
+	}
+}
+
+@keyframes danceDot10 {
+	from{
+		transform: translate(0, -$dotPost)
+	}
+	to {
+		transform: translate($dotPost, 0);
+	}
+}
+
+@keyframes danceDot11 {
+	from{
+		transform: translate(0, $dotPost)
+	}
+	to {
+		transform: translate($dotPost, 0);
+	}
+}
+
+@keyframes danceDot12 {
+	from{
+		transform: translate(0, $dotPost)
+	}
+	to {
+		transform: translate(-$dotPost, 0);
+	}
+}
+
+@keyframes danceDot13 {
+	from{
+		transform: translate($dotPost, 0)
+	}
+	to {
+		transform: translate(0, $dotPost);
+	}
+}
+
+@keyframes danceDot14 {
+	from{
+		transform: translate(-$dotPost, 0)
+	}
+	to {
+		transform: translate(0, $dotPost);
+	}
+}
+
+@keyframes danceDot14 {
+	from{
+		transform: translate(-$dotPost, 0)
+	}
+	to {
+		transform: translate(0, $dotPost);
+	}
+}
+
+@keyframes danceDot15 {
+	from{
+		transform: translate($dotPost, 0)
+	}
+	to {
+		transform: translate(0, -$dotPost);
+	}
+}
+
+@keyframes danceDot16 {
+	from{
+		transform: translate(-$dotPost, 0)
+	}
+	to {
+		transform: translate(0, -$dotPost);
+	}
+}
+// minus refers to position on the left or top

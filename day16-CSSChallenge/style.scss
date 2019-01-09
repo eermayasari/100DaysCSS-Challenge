@@ -1,0 +1,78 @@
+body {
+	background: #000;
+}
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #3498DA;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.square{
+	height: 100px;
+	width: 100px;
+	background: #fff;
+	transform-origin: 50% 50%;
+	animation: movement 1.2s ease-in-out infinite;
+}
+
+.shadow {
+	width: 130px;
+	height: 20px;
+	background: darken(#3498DA,15%);
+	border-radius: 50%;
+	position: absolute;
+	left: -15px;
+	z-index: -1;
+	animation: moveShadow 1.2s ease-in-out infinite;
+}
+
+@keyframes movement {
+	0%{
+		transform: translateY(0) rotateZ(0) scale(1);
+	}
+	20% {
+		transform: translateY(-100px) rotateZ(-180deg);
+	}
+	45%, 69% {
+		transform: translateY(0px) rotateZ (-180deg);
+	}
+	70%, 85% {
+		transform: translateY(42px) rotateZ(-180deg) scale(1.8, 0.4);
+	}
+	100% {
+		transform: translateY(0) rotateZ(-180deg) scale(1);
+	}
+}
+
+@keyframes moveShadow {
+	0%, 100%{
+		transform: scale(1);
+	}
+	20% {
+		transform: scale(0.5);
+	}
+	70%, 85% {
+		transform: scale(1.7);
+	}
+}
+

@@ -1,0 +1,13 @@
+.frame
+  .padLock
+    .hook
+      .innerHook
+    .lock
+      .combination
+        - for (var i = 1; i <= 100; i++)
+          div(class="combLine combLine"+i)
+        - for (var i = 0; i <= 9; i++)
+          div(class="combNum combNum"+i) #{i* 10}
+      .innerKnob
+			
+//- When we encounter "unexpected token" syntax error, it means that we have written something that is not right according to the syntax rule.

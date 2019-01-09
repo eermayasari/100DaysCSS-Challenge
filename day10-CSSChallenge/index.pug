@@ -1,0 +1,11 @@
+.frame
+  - for (var i = 1; i <= 400; i++)
+    div(class="target target-"+i)
+  .stripes
+    - for (var i = 1; i <= 20; i++)
+      div(class="stripe stripe-"+i)
+        .left
+        .right
+		
+//- Having problem with pug's indentation and space, "errors", finally got the idea on how to work with this. Tips: checked the compiled html when you code using pug/jade, make sure that every element is where you want it to be (inside a div or not).
+//- Code tweaked from https://codepen.io/mandycodestoo/pen/MZozVG?editors=1100#0

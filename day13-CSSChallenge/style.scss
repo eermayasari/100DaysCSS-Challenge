@@ -1,0 +1,164 @@
+$padLockColor: rgb(195,195,197);
+$frameBg: #F57E15;
+$combBg: #353336;
+
+body {
+	background: #000;
+}
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: $frameBg;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.padLock {
+  box-sizing: border-box;
+	cursor: pointer;
+	position: absolute;
+  top: 75px;
+  left: 120px;
+	height: 240px;
+	width: 160px;
+	padding-top: 80px;
+}
+
+.hook {
+	position: absolute;
+	left: 20px;
+	top: 0;
+	height: 120px;
+	width: 120px;
+	background: $padLockColor;
+	border-radius: 70px 70px 0px 10px;
+	box-shadow: inset 5px 5px 1px 0 rgba(255,255,255,0.5), inset -1px -1px 10px 2px rgba(0,0,0,0.5), 8px 0px 20px -5px rgba(0,0,0,0.5);
+	
+	.innerHook {
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		height: 110px;
+		width: 100px;
+		background: $frameBg;
+		border-radius: 70px 70px 0 0;
+		box-shadow: -1px 2px 10px 0px rgba(245,126,21,0.3), inset 8px 8px 5px 1px rgba(0,0,0,0.5);
+	
+		&:after {
+		content: 'Hover to Open & Rotate';
+		font-size: 12px;
+		color: #fff;
+		height: 100px;
+		width: 55px;
+		position: absolute;
+		top: 23px;
+		left: 24px;
+		text-align: center;
+		font-weight: 600;
+	}
+	}
+	
+	&:hover {
+		transform-origin: bottom right;
+		transform: rotate(22deg);
+	}
+}
+
+$combLine: 100;
+$combNum: 10;
+
+.lock {
+	position: relative;
+	width: 160px;
+	height: 160px;
+	background: $padLockColor;
+	border-radius: 50%;
+	box-shadow: inset 5px 5px 1px 0 rgba(255,255,255,0.5), inset -1px -1px 10px 2px rgba(0,0,0,0.5), 8px 8px 20px -5px rgba(0,0,0,0.5);
+	
+	&:hover .combination {
+	transform: rotate(360deg) translate3d(0,0,0);
+}
+		
+	.combination {
+		position: absolute;
+		top: 7.5px;
+		left: 7.5px;
+		height: 145px;
+		width: 145px;
+		border-radius: 50%;
+		background: $combBg;
+		transition: all 1.5s ease;
+		
+
+		.combLine {
+			background: #e6dd4e;
+			position: absolute;
+			top: 68px;
+			left: 71px;
+			width: 2px;
+			height: 10px;
+
+			
+			&:nth-child(10n+1) {
+				background: #fff;
+				top: 64px;
+				left: 71px;
+				width: 2px;
+				height: 18px;
+			}
+			
+			@for $i from 1 through $combLine {
+				$base: $i - 1;
+				$deg: (360deg/$combLine) * $base;
+				&#{$i}{
+					transform: rotate($deg) translateY(60px);
+				}
+			}
+		}
+		
+		.combNum {
+			position: absolute;
+			top: 66px;
+			left: 62px;
+			width: 20px;
+			height: 14px;
+			color: #fff;
+			font-size: 12px;
+			font-weight: 600;
+			line-height: 14px;
+			text-align: center;
+			
+			@for $i from 0 through $combNum {
+				$deg: (360deg/($combNum))*$i;
+				&#{$i}{
+					transform: rotate($deg) translateY(-40px);
+				}
+			}
+		}	
+		}
+			.innerKnob {
+			position: absolute;
+			top: 55px;
+			left: 55px;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background: $padLockColor;
+			box-shadow:inset 2px 2px 5px 1px rgba(255,255,255,0.75), inset 0px 0px 15px 0px rgba(0,0,0,0.75);
+	}
+}
+
